@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LoansApplication {
 
     public static void main(String[] args) {
+        System.out.println("应用启动中。。。");
         SpringApplication.run(LoansApplication.class, args);
+        System.out.println("应用已成功启动！");
     }
 
 }
