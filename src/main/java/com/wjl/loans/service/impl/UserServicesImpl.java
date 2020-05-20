@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: 念迟 & https://www.mrchi.cn
@@ -48,6 +49,10 @@ public class UserServicesImpl implements UserServices {
         return user;
     }
 
+    /**
+     * @param user
+     * 登录
+     */
     @Override
     public User login(User user) {
         user.setPwd(MD5Util.getmd5(user.getPwd()));
@@ -69,6 +74,10 @@ public class UserServicesImpl implements UserServices {
         return userId;
     }
 
+    /**
+     * @param user
+     * 更新
+     */
     @Override
     public User update(User user) {
         Long update = userDao.update(user);
@@ -86,5 +95,14 @@ public class UserServicesImpl implements UserServices {
             user.setMsg(e.getMessage());
         }
         return user;
+    }
+
+    /**
+     * 获取所有用户
+     * @return
+     */
+    @Override
+    public List<User> findAllUser() {
+        return userDao.findAllUser();
     }
 }
