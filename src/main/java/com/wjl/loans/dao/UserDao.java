@@ -4,6 +4,8 @@ import com.wjl.loans.entity.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author: 念迟 & https://www.mrchi.cn
  * @creed: 夕颜几度香散尽, 自古多情空念迟
@@ -56,4 +58,7 @@ public interface UserDao {
 
     @Select("select u.id from t_user u where u.name = #{name}")
     User findUserNameByID(User user);
+
+    @Select("SELECT * FROM t_user")
+    List<User> findAllUser();
 }

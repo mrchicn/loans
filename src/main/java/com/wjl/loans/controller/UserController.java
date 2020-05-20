@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * @author: 念迟 & https://www.mrchi.cn
@@ -58,5 +59,10 @@ public class UserController {
             return ResultUtil.success(update.getMsg(), update);
         }
         return ResultUtil.error(update.getMsg(), null);
+    }
+
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public List<User> getAll() {
+        return userServices.findAllUser();
     }
 }
