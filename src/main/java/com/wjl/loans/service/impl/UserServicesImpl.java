@@ -55,7 +55,6 @@ public class UserServicesImpl implements UserServices {
      */
     @Override
     public User login(User user) {
-        user.setPwd(MD5Util.getmd5(user.getPwd()));
         User userId = userDao.login(user);
         try {
             if (userId == null) {
